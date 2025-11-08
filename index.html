@@ -21,7 +21,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(180deg, #0a0a0b 0%, #111216 100%);
+      background: url('https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+      background-size: cover;
       color: #111;
       padding: 20px;
     }
@@ -162,6 +163,14 @@
       display: block;
       animation: fadeIn 350ms ease both;
     }
+    .error-message {
+      display: none;
+      margin-top: 12px;
+      text-align: center;
+    }
+    .error-message.show {
+      display: block;
+    }
     @media (max-width: 420px) {
       .envelope-wrap { height: 46vw; }
       .letter .content { font-size: 15px; padding: 6px; }
@@ -193,6 +202,9 @@
         </div>
       </div>
     </div>
+    <div class="error-message" id="errorMsg">
+      <p style="color:#fff;background:#e85a7b;padding:10px;border-radius:8px;">Oops! Something went wrong. Please refresh or try again.</p>
+    </div>
     <div class="hint">Tip: Tap the letter</div>
   </div>
   <script>
@@ -202,18 +214,4 @@
       const notice = document.getElementById('notice');
       const reveal = document.getElementById('reveal');
       const hint = document.querySelector('.hint');
-
-      setTimeout(() => {
-        notice.classList.add('show');
-        setTimeout(() => {
-          letter.style.transform = 'translateY(8%)';
-          setTimeout(() => letter.style.transform = 'translateY(100%)', 150);
-        }, 400);
-      }, 600);
-
-      function openEnvelope() {
-        if (envelope.classList.contains('opened')) return;
-        envelope.classList.add('opened');
-        notice.classList.remove('show');
-        reveal.classList.add('show');
-        hint.style.display = 'none';
+      const errorMsg = document.getElement
