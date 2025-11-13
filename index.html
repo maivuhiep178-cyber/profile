@@ -26,6 +26,7 @@
                   linear-gradient(180deg,var(--bg1),var(--bg2));
       display:flex;align-items:center;justify-content:flex-start;color:#e6eef8;flex-direction:column;gap:16px;padding:16px 0;
     }
+
     .blob{
       position:fixed;filter:blur(60px);opacity:0.5;border-radius:50%;transform-origin:center;
       will-change:transform,opacity;
@@ -44,6 +45,7 @@
       border-radius:18px; padding:24px; display:flex; gap:16px; align-items:center;
       backdrop-filter: blur(8px);
     }
+
     .left{
       width:160px; min-width:140px; text-align:center;
     }
@@ -52,7 +54,6 @@
       font-weight:700;font-size:28px;color:var(--bg1); background:linear-gradient(135deg,var(--accent1),var(--accent2));
       box-shadow: 0 8px 30px rgba(2,6,23,0.6);
       border:3px solid rgba(255,255,255,0.06);
-      overflow:hidden;
     }
     .profile-info{display:flex;flex-direction:column;align-items:center;}
     .name-wrapper{display:flex;align-items:baseline;gap:6px;justify-content:center;}
@@ -62,10 +63,12 @@
     .discord-status{display:flex;align-items:center;gap:8px;margin-top:8px;justify-content:center;}
     .discord-icon{width:20px;height:20px;}
     .status-text{font-size:13px;}
+
     .right{flex:1;}
     .intro{font-size:18px;margin:6px 0 12px 0;min-height:56px;line-height:1.3}
     .tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
     .tag{font-size:12px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);color:rgba(230,238,248,0.8);border:1px solid rgba(255,255,255,0.02)}
+
     .links{display:flex;flex-direction:column;gap:8px}
     .link{
       display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:12px;
@@ -82,10 +85,14 @@
       font-weight:700;
     }
     .link-icon{width:20px;height:20px;}
-    .pulse{animation:pulse 2.6s ease-in-out infinite;}
+    .pulse{
+      animation:pulse 2.6s ease-in-out infinite;
+    }
     @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.02)}100%{transform:scale(1)}}
+
     .reveal{opacity:0; transform:translateY(8px); transition:opacity .5s ease, transform .5s cubic-bezier(.2,.9,.3,1)}
     .reveal.visible{opacity:1; transform:translateY(0)}
+
     .interest-card .boxes{display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap;}
     .interest-card .box{text-align:center;flex:1 1 30%;padding:12px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.02);min-width:200px;}
     .interest-card .box-icon{width:40px;height:40px;margin:0 auto 4px;display:block;}
@@ -94,11 +101,12 @@
     .interest-card .box p{font-size:12px;color:rgba(230,238,248,0.8);}
     .small{font-size:13px;color:rgba(230,238,248,0.6)}
 
+    /* Floating Music Player */
     .floating-music-player {
       position: fixed;
       bottom: 20px;
       left: 20px;
-      width: 280px;
+      width: 300px;
       background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
       border: 1px solid rgba(255,255,255,0.04);
       border-radius: 18px;
@@ -109,40 +117,39 @@
       backdrop-filter: blur(8px);
       box-shadow: 0 10px 40px rgba(2,6,23,0.6);
       z-index: 999;
-      transform-origin: bottom left;
-      opacity: 1;
-      transform: translateY(0);
     }
-    .floating-music-player .track-info { display: flex; flex-direction: column; }
-    .floating-music-player .track-title { font-weight:700; font-size:14px; color:#e6eef8; }
-    .floating-music-player .track-artist { font-size:12px; color:rgba(230,238,248,0.6); }
-    .floating-music-player audio { width:100%; outline:none; border-radius:8px; background: rgba(255,255,255,0.02); }
+    .floating-music-player .track-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .floating-music-player .track-title { font-weight: 700; font-size: 14px; color: #e6eef8; }
+    .floating-music-player .track-artist { font-size: 12px; color: rgba(230,238,248,0.6); }
+    .floating-music-player audio { display:none; }
+    .floating-music-player .controls { display:flex; gap:6px; align-items:center; }
+    .floating-music-player button {
+      background: rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.02); border-radius:8px; padding:4px 8px; cursor:pointer; color:#e6eef8;
+    }
+    .floating-music-player button:hover { background: rgba(255,255,255,0.05); transform:translateY(-2px); }
+    .floating-music-player input[type=range] { flex:1; cursor:pointer; }
     .floating-music-player .playlist { display:flex; gap:6px; flex-wrap:wrap; }
     .floating-music-player .playlist-item {
-      cursor:pointer; padding:4px 8px; border-radius:999px;
-      background: rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.02);
-      font-size:11px; transition: transform 0.2s, background 0.2s; color: rgba(230,238,248,0.8);
+      cursor:pointer; padding:4px 8px; border-radius:999px; background: rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.02); font-size:11px; transition: transform 0.2s, background 0.2s; color: rgba(230,238,248,0.8);
     }
-    .floating-music-player .playlist-item:hover {
-      transform: translateY(-2px); background: rgba(255,255,255,0.05);
-    }
-
+    .floating-music-player .playlist-item:hover { transform:translateY(-2px); background: rgba(255,255,255,0.05); }
   </style>
 </head>
-
 <body>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
 
-  <div class="blob b1" aria-hidden="true"></div>
-  <div class="blob b2" aria-hidden="true"></div>
-
-  <main class="card" id="card" role="main" aria-labelledby="nameHeading">
+  <main class="card" id="card">
     <div class="left">
       <div class="avatar">
         <img src="https://raw.githubusercontent.com/maivuhiep178-cyber/-/main/avatar.jpg" alt="Ryu" style="width:100%;height:100%;border-radius:999px;object-fit:cover">
       </div>
       <div class="profile-info">
         <div class="name-wrapper">
-          <div class="name" id="nameHeading">Ryu</div>
+          <div class="name">Ryu</div>
           <div class="handle small">@Whyunisme</div>
         </div>
         <div class="discord-status">
@@ -155,24 +162,22 @@
 
     <div class="right">
       <div class="intro reveal" id="intro"></div>
-
       <div class="tags reveal" id="tags">
         <div class="tag">C++</div>
         <div class="tag">Rblx Lua Scripting</div>
       </div>
-
       <nav class="links" aria-label="Links" id="links">
-        <a class="link reveal" href="https://x.com/whyunisme" target="_blank" rel="noopener noreferrer">
-          <div class="dot pulse"><img class="link-icon" src="https://raw.githubusercontent.com/maivuhiep178-cyber/-/main/x.png" alt="X icon"></div>
+        <a class="link reveal" href="https://x.com/whyunisme" target="_blank">
+          <div class="dot pulse"><img class="link-icon" src="https://raw.githubusercontent.com/maivuhiep178-cyber/-/main/x.png"></div>
           <div><div style="font-weight:600">X</div><div class="small">x.com</div></div>
         </a>
-        <a class="link reveal" href="https://www.roblox.com/vi/users/8730453695/profile" target="_blank" rel="noopener noreferrer">
-          <div class="dot pulse"><img class="link-icon" src="https://raw.githubusercontent.com/maivuhiep178-cyber/-/main/roblox.png" alt="Roblox icon"></div>
+        <a class="link reveal" href="https://www.roblox.com/vi/users/8730453695/profile" target="_blank">
+          <div class="dot pulse"><img class="link-icon" src="https://raw.githubusercontent.com/maivuhiep178-cyber/-/main/roblox.png"></div>
           <div><div style="font-weight:600">Roblox</div><div class="small">roblox.com</div></div>
         </a>
-        <a class="link reveal" href="https://www.facebook.com/61578041512245" target="_blank" rel="noopener noreferrer">
-          <div class="dot pulse"><img class="link-icon" src="https://raw.githubusercontent.com/maivuhiep178-cyber/-/main/facebook.png" alt="facebook icon"></div>
-          <div><div style="font-weight:600">Facebook</div><div class="small">facebook.com</div></div>
+        <a class="link reveal" href="https://www.facebook.com/61578041512245" target="_blank">
+          <div class="dot pulse"><img class="link-icon" src="https://raw.githubusercontent.com/maivuhiep178-cyber/-/main/facebook.png"></div>
+          <div><div style="font-weight:600">Facebook</div><div class="small">Facebook.com</div></div>
         </a>
       </nav>
     </div>
@@ -181,33 +186,25 @@
   <section class="card interest-card reveal">
     <h2 class="reveal">Interest</h2>
     <div class="boxes">
-      <div class="box reveal">
-        <img class="box-icon" src="https://raw.githubusercontent.com/maivuhiep178-cyber/-/main/joystick.png" alt="Games icon">
-        <h3>Play Games</h3>
-        <p>Roblox, Minecraft</p>
-      </div>
-      <div class="box reveal">
-        <img class="box-icon" src="https://raw.githubusercontent.com/maivuhiep178-cyber/-/main/forknknife.png" alt="Eat and Drink icon">
-        <h3>Eat and Drink</h3>
-        <p>Vietnamese cuisine</p>
-      </div>
-      <div class="box reveal">
-        <img class="box-icon" src="https://raw.githubusercontent.com/maivuhiep178-cyber/-/main/code.png" alt="Code icon">
-        <h3>Codes stuff</h3>
-        <p>Likes to code on its free time</p>
-      </div>
+      <div class="box reveal"><img class="box-icon" src="https://raw.githubusercontent.com/maivuhiep178-cyber/-/main/joystick.png"><h3>Play Games</h3><p>Roblox, Minecraft</p></div>
+      <div class="box reveal"><img class="box-icon" src="https://raw.githubusercontent.com/maivuhiep178-cyber/-/main/forknknife.png"><h3>Eat and Drink</h3><p>Vietnamese cuisine</p></div>
+      <div class="box reveal"><img class="box-icon" src="https://raw.githubusercontent.com/maivuhiep178-cyber/-/main/code.png"><h3>Code stuff</h3><p>Likes to code on free time</p></div>
     </div>
   </section>
 
+  <!-- Floating Music Player -->
   <div class="floating-music-player">
     <div class="track-info">
       <div class="track-title" id="track-title">Song 1</div>
       <div class="track-artist" id="track-artist">Artist 1</div>
     </div>
-    <audio id="audio-player" controls autoplay loop>
-      <source src="https://example.com/song1.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
+    <audio id="audio-player"></audio>
+    <div class="controls">
+      <button id="prev-btn">⏮️</button>
+      <button id="play-btn">▶️</button>
+      <button id="next-btn">⏭️</button>
+      <input id="volume" type="range" min="0" max="1" step="0.01" value="0.5">
+    </div>
     <div class="playlist">
       <div class="playlist-item" data-src="https://example.com/song1.mp3" data-title="Song 1" data-artist="Artist 1">Song 1</div>
       <div class="playlist-item" data-src="https://example.com/song2.mp3" data-title="Song 2" data-artist="Artist 2">Song 2</div>
@@ -216,57 +213,49 @@
   </div>
 
   <script>
-    // Typing intro
-    const lines = ["Bored person. Building random things","Good at making bug","Random student that likes codes"];
+    // Typing intro animation
+    const lines = ["Bored person. Building random things","Good at making bugs","Random student that likes codes"];
     const introEl = document.getElementById("intro");
-    let lineIdx = 0, charIdx = 0;
+    let lineIdx=0, charIdx=0;
     function typeTick(){
-      if(lineIdx >= lines.length) return;
+      if(lineIdx>=lines.length) return;
       const current = lines[lineIdx];
-      introEl.textContent = current.slice(0, charIdx) + (charIdx % 2 ? "▌" : "");
+      introEl.textContent = current.slice(0,charIdx) + (charIdx%2?"▌":"");
       charIdx++;
-      if(charIdx > current.length + 6){ lineIdx++; charIdx=0; setTimeout(typeTick, 400); revealStagger(); }
-      else setTimeout(typeTick, 40 + Math.random()*40);
+      if(charIdx>current.length+6){ lineIdx++; charIdx=0; setTimeout(typeTick,400); }
+      else setTimeout(typeTick,40+Math.random()*40);
     }
 
-    // Reveal stagger
+    // Reveal elements
     function revealStagger(){
-      const reveals = Array.from(document.querySelectorAll(".reveal"));
-      reveals.forEach((el,i)=> setTimeout(()=> el.classList.add("visible"), i*120 + 180));
+      const reveals = document.querySelectorAll(".reveal");
+      reveals.forEach((el,i)=> setTimeout(()=>el.classList.add("visible"), i*120+180));
     }
 
-    // Music player
+    window.addEventListener("load", ()=> { typeTick(); revealStagger(); });
+
+    // Discord status fetch
+    fetch('https://api.lanyard.rest/v1/users/1195711931433099297')
+      .then(res=>res.json())
+      .then(data=>{
+        const status = data.data?.discord_status || 'offline';
+        document.getElementById('discord-status').textContent = status.charAt(0).toUpperCase() + status.slice(1);
+      }).catch(()=>document.getElementById('discord-status').textContent='Offline');
+
+    // Music player logic
     const audio = document.getElementById("audio-player");
     const titleEl = document.getElementById("track-title");
     const artistEl = document.getElementById("track-artist");
-    document.querySelectorAll(".playlist-item").forEach(item => {
-      item.addEventListener("click", () => {
-        audio.src = item.dataset.src;
-        audio.play();
-        titleEl.textContent = item.dataset.title;
-        artistEl.textContent = item.dataset.artist;
-      });
-    });
+    const playBtn = document.getElementById("play-btn");
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
+    const volumeSlider = document.getElementById("volume");
+    const playlistItems = Array.from(document.querySelectorAll(".playlist-item"));
+    let currentTrack=0;
 
-    // Discord status
-    fetch('https://api.lanyard.rest/v1/users/1195711931433099297')
-      .then(res => res.json())
-      .then(data => {
-        const status = data.data && data.data.discord_status ? data.data.discord_status : 'offline';
-        document.getElementById('discord-status').textContent = status.charAt(0).toUpperCase() + status.slice(1);
-      })
-      .catch(()=> document.getElementById('discord-status').textContent='Offline');
-
-    window.addEventListener("load", ()=> {
-      typeTick();
-      revealStagger();
-    });
-
-    // Pointer tilt for card
-    const card = document.getElementById("card");
-    if(window.matchMedia && !window.matchMedia('(max-width:720px)').matches){
-      document.addEventListener("pointermove",(e)=>{
-        const rect = card.getBoundingClientRect();
-        const dx = (e.clientX-(rect.left+rect.width/2))/rect.width;
-        const dy = (e.clientY-(rect.top+rect.height/2))/rect.height;
-        card.style.transform = `perspective(900px)
+    function loadTrack(index){
+      const item = playlistItems[index];
+      audio.src = item.dataset.src;
+      titleEl.textContent = item.dataset.title;
+      artistEl.textContent = item.dataset.artist;
+      audio.play();
