@@ -275,7 +275,7 @@
 
     <script>
       // typing intro using the bioData.bioLines provided server-side
-      const lines = ["Bored person. Building random things","Good at making bug","Random student that likes codes"];
+      const lines = ["Bored person. Building random things","Good at making bug","Random student that likes codes and money!!!"];
       const introEl = document.getElementById("intro");
       let lineIdx = 0, charIdx = 0;
 
@@ -339,16 +339,29 @@
         }
       });
 
-      // fetch discord presence and display status text
-      fetch('https://api.lanyard.rest/v1/users/1195711931433099297')
-        .then(res => res.json())
-        .then(data => {
-          // data.data.discord_status expected; fallback to 'offline' if not present
-          const status = data.data && data.data.discord_status ? data.data.discord_status : 'offline';
-          document.getElementById('discord-status').textContent = status.charAt(0).toUpperCase() + status.slice(1);
-        })
-        .catch(() => document.getElementById('discord-status').textContent = 'Offline');
+     fetch('https://api.lanyard.rest/v1/users/1195711931433099297')
+      .then(res => res.json())
+      .then(data => {
+        const status = data.data?.discord_status || 'offline';
 
+        const text = document.getElementById('discord-status');
+      const dot  = document.getElementById('status-dot');
+
+      dot.classList.remove("online","offline");
+
+      if(status === "online" || status === "idle" || status === "dnd"){
+        dot.classList.add("online");
+        text.textContent = "Online";
+      }else{
+          dot.classList.add("offline");
+          text.textContent = "Offline";
+        }
+      })
+      .catch(() => {
+        document.getElementById('discord-status').textContent = 'Offline';
+        document.getElementById('status-dot')?.classList.add("offline");
+      });
+      
       // show loader until all images load or error
       const images = document.querySelectorAll('img');
       const promises = Array.from(images).map(img => new Promise(resolve => {
