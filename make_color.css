@@ -43,3 +43,22 @@
   50%{background-position:100% 50%}
   100%{background-position:0% 50%}
 }
+
+.status-dot{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:#666;
+}
+
+/* online */
+.status-dot.online{
+  background:#22c55e;
+  box-shadow:0 0 6px #22c55e;
+}
+
+/* offline */
+.status-dot.offline{
+  background:#ef4444;
+  box-shadow:0 0 6px #ef4444;
+}
